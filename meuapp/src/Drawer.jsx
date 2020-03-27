@@ -7,11 +7,11 @@ import List from '@material-ui/core/List';
 
 const useStyles = makeStyles({
   list: {
-    width: 400,
+    width: 200,
+    marginTop: 30,
   },
   fullList: {
     width: 'auto',
-    background: 'red',
   },
   drawer: {
     opacity: 0,
