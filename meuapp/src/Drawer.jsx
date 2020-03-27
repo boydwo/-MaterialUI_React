@@ -4,12 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-// import Divider from '@material-ui/core/Divider';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles({
   list: {
@@ -17,6 +11,7 @@ const useStyles = makeStyles({
   },
   fullList: {
     width: 'auto',
+    background: 'red',
   },
   drawer: {
     opacity: 0,
@@ -26,25 +21,22 @@ const useStyles = makeStyles({
 export default function TemporaryDrawer() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-
+    right: false,
   });
 
   const toggleDrawer = (anchor, open) => event => {
-    setState({ [anchor]: open });
+    setState({ ...state, [anchor]: open });
   };
 
   const list = anchor => (
     <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+      className={classes.list}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-      </List>
-      <List>
+
       </List>
     </div>
   );
